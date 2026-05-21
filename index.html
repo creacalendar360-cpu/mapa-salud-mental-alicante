@@ -413,19 +413,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef0f5;overflow:hidden;
 }
 
 /* ═══ MUNICIPAL BOUNDARIES ═════════════════════════════════════ */
-.muni-tooltip {
-  background:rgba(255,255,255,.95) !important;
-  border:1px solid #90A4AE !important;
-  border-radius:5px !important; padding:3px 10px !important;
-  font-size:10.5px !important; font-weight:600 !important;
-  color:#1F3864 !important; box-shadow:0 2px 8px rgba(0,0,0,.15) !important;
-  white-space:nowrap !important; pointer-events:none !important;
-}
-/* Hide all Leaflet tooltip arrows for municipality labels */
-.muni-tooltip::before,
-.muni-tooltip::after,
-.leaflet-tooltip.muni-tooltip::before,
-.leaflet-tooltip.muni-tooltip::after { display:none !important; }
+/* .muni-tooltip removed */
+/* municipality tooltip CSS removed */
 #boundaries-status {
   position:fixed; bottom:60px; right:14px; z-index:900;
   font-size:9.5px; color:#888; background:rgba(255,255,255,.85);
@@ -1587,13 +1576,15 @@ async function loadMunicipalBoundaries() {
 function drawBoundaries(geojson) {
   const others   = geojson.features.filter(f => !isAliFeature(f));
   const alicante = geojson.features.filter(f =>  isAliFeature(f));
+  // Surrounding municipalities — subtle dashed, light hover shade
   L.geoJSON({type:'FeatureCollection',features:others},{
-    style:{color:'#546E7A',weight:1.5,opacity:0.6,fillOpacity:0,dashArray:'6,6'},
-    onEachFeature:addMuniTooltip,
+    style:{color:'#78909C',weight:1,opacity:0.5,fillOpacity:0,dashArray:'5,6'},
+    onEachFeature: addMuniHover,
   }).addTo(map);
+  // Alicante — solid line, no fill, no tooltip
   L.geoJSON({type:'FeatureCollection',features:alicante.length?alicante:geojson.features.slice(0,1)},{
-    style:{color:'#0D47A1',weight:3.5,opacity:0.9,fillColor:'#1565C0',fillOpacity:0.07},
-    onEachFeature:addMuniTooltip,
+    style:{color:'#1565C0',weight:2,opacity:0.75,fillColor:'#1565C0',fillOpacity:0.04},
+    onEachFeature: addMuniHover,
   }).addTo(map);
 }
 
@@ -1602,14 +1593,15 @@ function isAliFeature(f) {
   return ['Alicante/Alacant','Alacant/Alicante','Alicante','Alacant'].includes(n);
 }
 
-function addMuniTooltip(feature, layer) {
-  const name = feature.properties?.name||feature.properties?.['name:es']||'';
-  if(!name) return;
-  layer.bindTooltip(name,{sticky:true,permanent:false,className:'muni-tooltip',opacity:.95});
-  if(!isAliFeature(feature)){
-    layer.on('mouseover',function(){this.setStyle({fillColor:'#90A4AE',fillOpacity:0.1});});
-    layer.on('mouseout', function(){this.setStyle({fillColor:'transparent',fillOpacity:0});});
-  }
+function addMuniHover(feature, layer) {
+  // Hover shading only — no tooltip, no popup, no label
+  const isAli = isAliFeature(feature);
+  layer.on('mouseover', function() {
+    this.setStyle({fillColor: isAli ? '#1565C0' : '#90A4AE', fillOpacity: 0.1});
+  });
+  layer.on('mouseout', function() {
+    this.setStyle({fillOpacity: isAli ? 0.04 : 0});
+  });
 }
 
 

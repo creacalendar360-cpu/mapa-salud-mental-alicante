@@ -1130,6 +1130,7 @@ function exportCSV(){
 // ═══════════════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════════════
+let DATA = [];
 loadAndInit();
 initGitHubStatus();
 
@@ -1770,7 +1771,7 @@ async function publishToGitHub() {
 
     ghLog(`✓ Publicado correctamente — ${DATA.length} recursos · GitHub Pages se actualizará en ~1 minuto.`,'ok');
     btn.textContent='✓ Publicado';
-    setTimeout(()=>{btn.disabled=false;btn.textContent='☁ Publicar cambios';}',3000);
+    setTimeout(()=>{btn.disabled=false;btn.textContent='☁ Publicar cambios';},3000);
   } catch(e) {
     ghLog(`✗ Error: ${e.message}`,'err');
     btn.disabled=false; btn.textContent='☁ Publicar cambios';

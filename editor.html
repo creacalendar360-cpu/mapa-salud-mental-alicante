@@ -1576,27 +1576,44 @@ const ALICANTE_NAMES = new Set([
 ]);
 
 async function loadMunicipalBoundaries() {
-  // Create low-z-index pane so boundaries render below markers
+  // Create dedicated pane below markers
   if (!map.getPane('boundaryPane')) {
     map.createPane('boundaryPane');
     map.getPane('boundaryPane').style.zIndex = 350;
     map.getPane('boundaryPane').style.pointerEvents = 'none';
   }
-  const query = `[out:json][timeout:60];
-    relation["admin_level"="8"]["boundary"="administrative"]
-    (37.78,-1.22,38.92,0.20);
-    out geom qt;`;
-  try {
-    const resp = await fetch('https://overpass-api.de/api/interpreter', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: 'data=' + encodeURIComponent(query),
-    });
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    const osm = await resp.json();
-    if (typeof osmtogeojson === 'undefined') throw new Error('osmtogeojson not loaded');
-    drawBoundaries(osmtogeojson(osm));
-  } catch(e) { console.warn('Boundaries:', e.message); }
+
+  // Try full province first; fall back to city area if too slow/large
+  const queries = [
+    { label:'province', bbox:'37.78,-1.22,38.92,0.20', timeout:55 },
+    { label:'city',     bbox:'38.10,-0.85,38.60,-0.10', timeout:25 },
+  ];
+
+  for (const {label, bbox, timeout} of queries) {
+    try {
+      console.log('Boundaries: trying', label, bbox);
+      const query = `[out:json][timeout:${timeout}];
+        relation["admin_level"="8"]["boundary"="administrative"]
+        (${bbox});
+        out geom qt;`;
+      const resp = await fetch('https://overpass-api.de/api/interpreter', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:'data=' + encodeURIComponent(query),
+        signal: AbortSignal.timeout ? AbortSignal.timeout((timeout + 5) * 1000) : undefined,
+      });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      const osm = await resp.json();
+      if (typeof osmtogeojson === 'undefined') throw new Error('osmtogeojson not loaded');
+      const gj = osmtogeojson(osm);
+      console.log('Boundaries: got', gj.features.length, 'features from', label);
+      if (gj.features.length > 0) { drawBoundaries(gj); return; }
+      throw new Error('empty response');
+    } catch(e) {
+      console.warn('Boundaries', label, 'failed:', e.message, '— trying next…');
+    }
+  }
+  console.warn('All boundary sources failed.');
 }
 
 function drawBoundaries(geojson) {

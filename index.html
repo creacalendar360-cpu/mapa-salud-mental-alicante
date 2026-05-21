@@ -8,6 +8,8 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/osmtogeojson@3.0.0-beta.5/osmtogeojson.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Segoe UI',Arial,sans-serif;background:#eef0f5;overflow:hidden;}
@@ -425,6 +427,20 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef0f5;overflow:hidden;
 /* ═══ VISITOR MODE ══════════════════════════════════════════════════ */
 .editor-only { display:none !important; }
 
+
+/* ═══ EXPORT LOADING OVERLAY ═══════════════════════════════════════ */
+#export-loading {
+  display:none; position:fixed; inset:0; background:rgba(255,255,255,.85);
+  z-index:5000; align-items:center; justify-content:center; flex-direction:column; gap:12px;
+}
+#export-loading.show { display:flex; }
+#export-loading p { font-size:13px; color:#1F3864; font-weight:600; }
+.export-spinner {
+  width:36px; height:36px; border:4px solid #D0D8E8;
+  border-top-color:#1F3864; border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+
 </style>
 </head>
 <body>
@@ -444,15 +460,16 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef0f5;overflow:hidden;
     <div class="hstat"><div class="n">133</div><div class="l">Total</div></div>
   </div>
   <div class="hdiv"></div>
-  <button class="hbtn" onclick="openAddModal()" class="editor-only">＋ Añadir punto</button>
+  <button class="hbtn editor-only" onclick="openAddModal()">＋ Añadir punto</button>
   <button class="hbtn" style="background:#5C2D91" onclick="toggleIsoPanel()">📊 Isócronas</button>
   <button class="hbtn secondary" onclick="toggleExportMenu()">⬇ Exportar</button>
 </div>
 
 <!-- ═══ EXPORT MENU ══════════════════════════════════════════════════ -->
 <div id="export-menu">
-  <div class="em-item" onclick="exportJSON()">📄 Exportar JSON</div>
   <div class="em-item" onclick="exportCSV()">📊 Exportar CSV</div>
+  <div class="em-item" onclick="exportMapPNG()">🖼 Exportar PNG (captura del mapa)</div>
+  <div class="em-item" onclick="exportMapPDF()">📑 Exportar PDF (mapa + fichas)</div>
 </div>
 
 <!-- ═══ SIDEBAR ══════════════════════════════════════════════════════ -->
@@ -1556,9 +1573,15 @@ const ALICANTE_NAMES = new Set([
 ]);
 
 async function loadMunicipalBoundaries() {
-  const query = `[out:json][timeout:30];
+  // Create low-z-index pane so boundaries render below markers
+  if (!map.getPane('boundaryPane')) {
+    map.createPane('boundaryPane');
+    map.getPane('boundaryPane').style.zIndex = 350;
+    map.getPane('boundaryPane').style.pointerEvents = 'none';
+  }
+  const query = `[out:json][timeout:60];
     relation["admin_level"="8"]["boundary"="administrative"]
-    (38.18,-0.72,38.56,-0.22);
+    (37.78,-1.22,38.92,0.20);
     out geom qt;`;
   try {
     const resp = await fetch('https://overpass-api.de/api/interpreter', {
@@ -1574,18 +1597,24 @@ async function loadMunicipalBoundaries() {
 }
 
 function drawBoundaries(geojson) {
-  const others   = geojson.features.filter(f => !isAliFeature(f));
-  const alicante = geojson.features.filter(f =>  isAliFeature(f));
-  // Surrounding municipalities — subtle dashed, light hover shade
+  const pane = 'boundaryPane';
+  const aliFeat = geojson.features.filter(f => isAliFeature(f));
+  const others  = geojson.features.filter(f => !isAliFeature(f));
+  // Other municipalities — thin dashed grey
   L.geoJSON({type:'FeatureCollection',features:others},{
-    style:{color:'#78909C',weight:1,opacity:0.5,fillOpacity:0,dashArray:'5,6'},
-    onEachFeature: addMuniHover,
+    pane,
+    style:{color:'#607D8B',weight:1,opacity:0.5,fillOpacity:0,dashArray:'5,6'},
+    onEachFeature: addMuniTooltip,
   }).addTo(map);
-  // Alicante — solid line, no fill, no tooltip
-  L.geoJSON({type:'FeatureCollection',features:alicante.length?alicante:geojson.features.slice(0,1)},{
-    style:{color:'#1565C0',weight:2,opacity:0.75,fillColor:'#1565C0',fillOpacity:0.04},
-    onEachFeature: addMuniHover,
-  }).addTo(map);
+  // Alicante city — prominent blue border
+  const aliSrc = aliFeat.length ? aliFeat : [];
+  if (aliSrc.length) {
+    L.geoJSON({type:'FeatureCollection',features:aliSrc},{
+      pane,
+      style:{color:'#0D47A1',weight:3,opacity:0.85,fillColor:'#1565C0',fillOpacity:0.06},
+      onEachFeature: addMuniTooltip,
+    }).addTo(map);
+  }
 }
 
 function isAliFeature(f) {
@@ -1620,6 +1649,178 @@ async function loadAndInit() {
 
 
 const IS_VISITOR = true;
+
+
+// Remove Leaflet tooltip arrows for municipality labels
+(function(){
+  const s = document.createElement('style');
+  s.textContent = [
+    '.leaflet-tooltip.muni-tooltip::before',
+    '.leaflet-tooltip.muni-tooltip::after',
+    '.leaflet-tooltip-bottom.muni-tooltip::before',
+    '.leaflet-tooltip-top.muni-tooltip::before',
+    '.leaflet-tooltip-left.muni-tooltip::before',
+    '.leaflet-tooltip-right.muni-tooltip::before',
+  ].join(',') + '{ display:none!important; border:none!important; width:0!important; height:0!important; }';
+  document.head.appendChild(s);
+})();
+
+
+// ═══ EXPORT PNG + PDF ════════════════════════════════════════════════
+function showExportLoading(msg) {
+  document.getElementById('export-loading-msg').textContent = msg;
+  document.getElementById('export-loading').classList.add('show');
+}
+function hideExportLoading() {
+  document.getElementById('export-loading').classList.remove('show');
+}
+
+async function exportMapPNG() {
+  document.getElementById('export-menu').classList.remove('open');
+  if (typeof html2canvas === 'undefined') {
+    alert('La librería de captura no está disponible. Asegúrate de estar conectado a internet.'); return;
+  }
+  showExportLoading('Capturando mapa…');
+  try {
+    const canvas = await html2canvas(document.getElementById('map'), {
+      useCORS: true, allowTaint: true, logging: false,
+      foreignObjectRendering: false,
+    });
+    const link = document.createElement('a');
+    link.download = 'mapa_sm_alicante_' + new Date().toISOString().slice(0,10) + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  } catch(e) { alert('Error al capturar el mapa: ' + e.message); }
+  hideExportLoading();
+}
+
+async function exportMapPDF() {
+  document.getElementById('export-menu').classList.remove('open');
+  if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
+    alert('Las librerías de exportación no están disponibles. Asegúrate de estar conectado a internet.'); return;
+  }
+  showExportLoading('Generando PDF…');
+  try {
+    const { jsPDF } = window.jspdf;
+
+    // 1. Capture map
+    showExportLoading('Capturando mapa…');
+    const canvas = await html2canvas(document.getElementById('map'), {
+      useCORS: true, allowTaint: true, logging: false,
+    });
+    const imgData = canvas.toDataURL('image/png');
+
+    // 2. Get visible resources
+    const visible = DATA.filter(r => r.lat && markerMap[r.id] && layerGroup.hasLayer(markerMap[r.id]));
+    const today   = new Date().toLocaleDateString('es-ES', {day:'2-digit',month:'2-digit',year:'numeric'});
+
+    // 3. Build PDF
+    showExportLoading('Componiendo PDF…');
+    const pdf = new jsPDF('l', 'mm', 'a4');
+    const pw  = pdf.internal.pageSize.getWidth();   // 297mm
+    const ph  = pdf.internal.pageSize.getHeight();  // 210mm
+
+    // ── Page 1: map ──────────────────────────────────────────────
+    pdf.setFillColor(248,250,255);
+    pdf.rect(0,0,pw,ph,'F');
+
+    // Header strip
+    pdf.setFillColor(31,56,100);
+    pdf.rect(0,0,pw,22,'F');
+
+    pdf.setFont('helvetica','bold');
+    pdf.setFontSize(11);
+    pdf.setTextColor(255,255,255);
+    pdf.text('MAPA DE RECURSOS MUNICIPALES Y COMUNITARIOS CON INCIDENCIA EN LA SALUD MENTAL', pw/2, 9, {align:'center'});
+    pdf.setFont('helvetica','normal');
+    pdf.setFontSize(8);
+    pdf.setTextColor(180,200,230);
+    pdf.text('Concejalía de Bienestar Social · Ayuntamiento de Alicante · Edición 2026', pw/2, 15, {align:'center'});
+    pdf.setTextColor(244,163,64);
+    pdf.text(`Generado: ${today} · ${visible.length} recurso${visible.length!==1?'s':''} visibles`, pw/2, 20, {align:'center'});
+
+    // Map image
+    const ratio = canvas.width / canvas.height;
+    const mapW  = pw - 20;
+    const mapH  = Math.min(mapW / ratio, ph - 32);
+    pdf.addImage(imgData, 'PNG', 10, 25, mapW, mapH);
+
+    // ── Page 2+: resource cards ───────────────────────────────────
+    if (visible.length > 0) {
+      pdf.addPage();
+      pdf.setFillColor(31,56,100);
+      pdf.rect(0,0,pw,16,'F');
+      pdf.setFont('helvetica','bold');
+      pdf.setFontSize(11);
+      pdf.setTextColor(255,255,255);
+      pdf.text(`Fichas de recursos visibles (${visible.length})`, pw/2, 10, {align:'center'});
+
+      const CARD_H  = 22;
+      const COLS    = 3;
+      const CARD_W  = (pw - 16) / COLS;
+      const START_Y = 22;
+      const PAGE_H  = ph - 10;
+
+      let col = 0, row = 0;
+
+      visible.forEach(r => {
+        const x = 8 + col * CARD_W;
+        const y = START_Y + row * (CARD_H + 3);
+
+        if (y + CARD_H > PAGE_H) {
+          col = 0; row = 0;
+          pdf.addPage();
+          pdf.setFillColor(31,56,100);
+          pdf.rect(0,0,pw,12,'F');
+          pdf.setFont('helvetica','bold');
+          pdf.setFontSize(9);
+          pdf.setTextColor(255,255,255);
+          pdf.text('Fichas de recursos (cont.)', pw/2, 8, {align:'center'});
+        }
+
+        const cx = 8 + col * CARD_W;
+        const cy = START_Y + row * (CARD_H + 3);
+
+        // Card background
+        pdf.setFillColor(240,245,255);
+        pdf.setDrawColor(200,215,240);
+        pdf.roundedRect(cx, cy, CARD_W - 2, CARD_H, 2, 2, 'FD');
+
+        // Colour strip by bloque
+        const bloqueColor = {
+          'A. Municipal':             [31,56,100],
+          'B. GVA Sanitario':         [46,125,50],
+          'D. Igualdad y Protección': [92,45,145],
+          'F. Tercer Sector':         [200,85,26],
+        }[r.bloque] || [80,80,80];
+        pdf.setFillColor(...bloqueColor);
+        pdf.roundedRect(cx, cy, 3, CARD_H, 1, 1, 'F');
+
+        // Text
+        pdf.setFont('helvetica','bold');
+        pdf.setFontSize(7.5);
+        pdf.setTextColor(31,56,100);
+        const nombre = r.nombre.length > 42 ? r.nombre.slice(0,41)+'…' : r.nombre;
+        pdf.text(nombre, cx+5, cy+5.5);
+
+        pdf.setFont('helvetica','normal');
+        pdf.setFontSize(6.5);
+        pdf.setTextColor(80,80,80);
+        pdf.text(r.tipo, cx+5, cy+10);
+        pdf.setTextColor(100,100,100);
+        pdf.text(r.zona + (r.tit ? ' · ' + r.tit.slice(0,30) : ''), cx+5, cy+14.5);
+        const contact = [r.tel, r.email].filter(x=>x&&x!=='None').join('  ·  ');
+        if (contact) pdf.text(contact.slice(0,55), cx+5, cy+19);
+
+        col++;
+        if (col >= COLS) { col = 0; row++; }
+      });
+    }
+
+    pdf.save('mapa_sm_alicante_' + new Date().toISOString().slice(0,10) + '.pdf');
+  } catch(e) { alert('Error al generar PDF: ' + e.message); console.error(e); }
+  hideExportLoading();
+}
 
 </script>
 

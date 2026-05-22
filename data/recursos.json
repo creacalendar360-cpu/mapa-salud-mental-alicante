@@ -16,7 +16,8 @@
     "lat": 38.345815,
     "lon": -0.493638,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "ESZ-ESTE",
@@ -35,7 +36,8 @@
     "lat": 38.3732,
     "lon": -0.4785,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "ESZ-NORTE",
@@ -54,7 +56,8 @@
     "lat": 38.3734,
     "lon": -0.4957,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "ESZ-OESTE",
@@ -73,7 +76,8 @@
     "lat": 38.362767,
     "lon": -0.496376,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "ESZ-SUR",
@@ -92,7 +96,8 @@
     "lat": 38.339142,
     "lon": -0.514522,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "DPTO-ACOGIDA",
@@ -111,7 +116,8 @@
     "lat": 38.34639,
     "lon": -0.48428,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "RED-VIVIENDAS",
@@ -130,7 +136,8 @@
     "lat": 38.34639,
     "lon": -0.48428,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "U-PERSONAS-SIN-HOGAR",
@@ -149,7 +156,8 @@
     "lat": 38.34639,
     "lon": -0.48428,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "URGENCIAS-SOCIALES",
@@ -168,7 +176,8 @@
     "lat": 38.34639,
     "lon": -0.48428,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "EEIIA",
@@ -187,7 +196,8 @@
     "lat": 38.34689,
     "lon": -0.4828,
     "estado": "Activo",
-    "grupo_pob": "Infancia y adolescencia"
+    "grupo_pob": "Infancia y adolescencia",
+    "_custom": false
   },
   {
     "id": "EIMAD",
@@ -206,7 +216,8 @@
     "lat": 38.3440053,
     "lon": -0.4856528,
     "estado": "Activo",
-    "grupo_pob": "Personas mayores"
+    "grupo_pob": "Personas mayores",
+    "_custom": false
   },
   {
     "id": "OF-CUIDADORAS",
@@ -225,7 +236,8 @@
     "lat": 38.34643,
     "lon": -0.483,
     "estado": "Activo",
-    "grupo_pob": "Familias y cuidadores"
+    "grupo_pob": "Familias y cuidadores",
+    "_custom": false
   },
   {
     "id": "OF-MATERNIDAD",
@@ -244,7 +256,8 @@
     "lat": 38.34723,
     "lon": -0.48229,
     "estado": "Activo",
-    "grupo_pob": "Familias y cuidadores"
+    "grupo_pob": "Familias y cuidadores",
+    "_custom": false
   },
   {
     "id": "SASEM-EB1",
@@ -263,7 +276,8 @@
     "lat": 38.3578988,
     "lon": -0.4299463,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "SASEM-EB2",
@@ -282,7 +296,8 @@
     "lat": 38.362767,
     "lon": -0.496376,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "SASEM-EB3",
@@ -301,7 +316,8 @@
     "lat": 38.339142,
     "lon": -0.514522,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "SASEM-EB4",
@@ -320,7 +336,8 @@
     "lat": 38.370409,
     "lon": -0.483336,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "SASEM-EB7",
@@ -339,7 +356,8 @@
     "lat": 38.361036,
     "lon": -0.471997,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "SASEM-HQ",
@@ -358,7 +376,8 @@
     "lat": 38.3440011,
     "lon": -0.4856769,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "MEDIACION",
@@ -377,7 +396,8 @@
     "lat": 38.344555,
     "lon": -0.48517,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "DPTO-FAM-MENOR",
@@ -396,7 +416,8 @@
     "lat": 38.34689,
     "lon": -0.4828,
     "estado": "Activo",
-    "grupo_pob": "Infancia y adolescencia"
+    "grupo_pob": "Infancia y adolescencia",
+    "_custom": false
   },
   {
     "id": "DPTO-INCLUSION",
@@ -415,7 +436,8 @@
     "lat": 38.34639,
     "lon": -0.48428,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "ITIN-PUEBLO-GITANO",
@@ -434,7 +456,8 @@
     "lat": 38.3463042,
     "lon": -0.4837584,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "ALICAN-TE-ACOMPANA",
@@ -453,7 +476,8 @@
     "lat": 38.3463337,
     "lon": -0.4837893,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "SAIIL",
@@ -472,7 +496,8 @@
     "lat": 38.346279,
     "lon": -0.4837772,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "DPTO-IGUALDAD",
@@ -491,7 +516,8 @@
     "lat": 38.3453,
     "lon": -0.483,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "GAVID",
@@ -510,7 +536,8 @@
     "lat": 38.32793,
     "lon": -0.51108,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "PIM",
@@ -529,7 +556,8 @@
     "lat": 38.3453,
     "lon": -0.483,
     "estado": "Activo",
-    "grupo_pob": "Mujeres y víctimas de VG"
+    "grupo_pob": "Mujeres y víctimas de VG",
+    "_custom": false
   },
   {
     "id": "UAIVG",
@@ -548,7 +576,8 @@
     "lat": 38.3453,
     "lon": -0.483,
     "estado": "Activo",
-    "grupo_pob": "Mujeres y víctimas de VG"
+    "grupo_pob": "Mujeres y víctimas de VG",
+    "_custom": false
   },
   {
     "id": "UPCCA",
@@ -567,7 +596,8 @@
     "lat": 38.3464367,
     "lon": -0.4811519,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "SAD",
@@ -586,7 +616,8 @@
     "lat": 38.3486715,
     "lon": -0.485851,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CAD-SED",
@@ -605,7 +636,8 @@
     "lat": 38.3485811,
     "lon": -0.4858027,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "STAD",
@@ -624,7 +656,8 @@
     "lat": 38.3486589,
     "lon": -0.4857437,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "DPTO-MAYORES",
@@ -643,7 +676,8 @@
     "lat": 38.3440032,
     "lon": -0.4856689,
     "estado": "Activo",
-    "grupo_pob": "Personas mayores"
+    "grupo_pob": "Personas mayores",
+    "_custom": false
   },
   {
     "id": "UNIDAD-ENVEJ-ACTIVO",
@@ -662,7 +696,8 @@
     "lat": 38.3485916,
     "lon": -0.4856766,
     "estado": "Activo",
-    "grupo_pob": "Personas mayores"
+    "grupo_pob": "Personas mayores",
+    "_custom": false
   },
   {
     "id": "CMS-CIUDAD-ASIS",
@@ -681,7 +716,8 @@
     "lat": 38.34905,
     "lon": -0.51201,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-DIVINA-PASTORA",
@@ -700,7 +736,8 @@
     "lat": 38.371886,
     "lon": -0.504809,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-PALAMO",
@@ -719,7 +756,8 @@
     "lat": 38.38475,
     "lon": -0.49229,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-PLA",
@@ -738,7 +776,8 @@
     "lat": 38.361036,
     "lon": -0.471997,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-GARBINET",
@@ -757,7 +796,8 @@
     "lat": 38.3732,
     "lon": -0.4785,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-GASTON-CASTELLO",
@@ -776,7 +816,8 @@
     "lat": 38.3734,
     "lon": -0.4957,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-JUAN-XXIII",
@@ -795,7 +836,8 @@
     "lat": 38.3734,
     "lon": -0.477529,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-CASITA-CEMENTERIO",
@@ -814,7 +856,8 @@
     "lat": 38.35288,
     "lon": -0.52995,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-FLORIDA",
@@ -833,7 +876,8 @@
     "lat": 38.339142,
     "lon": -0.514522,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-LOS-ANGELES",
@@ -852,7 +896,8 @@
     "lat": 38.362767,
     "lon": -0.496376,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-MERCADO",
@@ -871,7 +916,8 @@
     "lat": 38.35083,
     "lon": -0.48712,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-NOU-ALACANT",
@@ -890,7 +936,8 @@
     "lat": 38.366349,
     "lon": -0.483045,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-PEDRO-GOITIA",
@@ -909,7 +956,8 @@
     "lat": 38.375021,
     "lon": -0.486698,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-PLAYAS",
@@ -928,7 +976,8 @@
     "lat": 38.3578988,
     "lon": -0.4299463,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-PLAZA-CARMEN",
@@ -947,7 +996,8 @@
     "lat": 38.34689,
     "lon": -0.4828,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-RABASA",
@@ -966,7 +1016,8 @@
     "lat": 38.36544,
     "lon": -0.5075,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-SAN-BLAS",
@@ -985,7 +1036,8 @@
     "lat": 38.348281,
     "lon": -0.499404,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-TOMBOLA",
@@ -1004,7 +1056,8 @@
     "lat": 38.36797,
     "lon": -0.49923,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CMS-VIRGEN-CARMEN",
@@ -1023,7 +1076,8 @@
     "lat": 38.370409,
     "lon": -0.483336,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-GARBINET",
@@ -1042,7 +1096,8 @@
     "lat": 38.3732,
     "lon": -0.4785,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-JOSE-CANALES",
@@ -1061,7 +1116,8 @@
     "lat": 38.34905,
     "lon": -0.51201,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-JUAN-XXIII",
@@ -1080,7 +1136,8 @@
     "lat": 38.375917,
     "lon": -0.480872,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-PLAYAS",
@@ -1099,7 +1156,8 @@
     "lat": 38.3578988,
     "lon": -0.4299463,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-PLAZA-CARMEN",
@@ -1118,7 +1176,8 @@
     "lat": 38.34689,
     "lon": -0.4828,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-PLA",
@@ -1137,7 +1196,8 @@
     "lat": 38.361036,
     "lon": -0.471997,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-RABASA",
@@ -1156,7 +1216,8 @@
     "lat": 38.36541,
     "lon": -0.50748,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-TOMBOLA",
@@ -1175,7 +1236,8 @@
     "lat": 38.36797,
     "lon": -0.49923,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-URBANOVA",
@@ -1194,7 +1256,8 @@
     "lat": 38.279282,
     "lon": -0.522871,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-VIRGEN-CARMEN",
@@ -1213,7 +1276,8 @@
     "lat": 38.370409,
     "lon": -0.483336,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-FELICIDAD-SANCHEZ",
@@ -1232,7 +1296,8 @@
     "lat": 38.339142,
     "lon": -0.514522,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CC-GASTON-CASTELLO",
@@ -1251,7 +1316,8 @@
     "lat": 38.3734,
     "lon": -0.4957,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "ABSENTISMO",
@@ -1270,7 +1336,8 @@
     "lat": 38.34784,
     "lon": -0.48185,
     "estado": "Activo",
-    "grupo_pob": "Infancia y adolescencia"
+    "grupo_pob": "Infancia y adolescencia",
+    "_custom": false
   },
   {
     "id": "PARTICIPACION-CIUDADANA",
@@ -1289,7 +1356,8 @@
     "lat": 38.3455524,
     "lon": -0.4851726,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "PLAN-MPAL-SM",
@@ -1308,7 +1376,8 @@
     "lat": 38.3468,
     "lon": -0.48561,
     "estado": "En elaboración",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "USMIA-BENALUA",
@@ -1327,7 +1396,8 @@
     "lat": 38.34082,
     "lon": -0.50008,
     "estado": "Activo",
-    "grupo_pob": "Infancia y adolescencia"
+    "grupo_pob": "Infancia y adolescencia",
+    "_custom": false
   },
   {
     "id": "USMIA-CABO-HUERTAS",
@@ -1346,7 +1416,8 @@
     "lat": 38.3610222,
     "lon": -0.4258619,
     "estado": "Activo",
-    "grupo_pob": "Infancia y adolescencia"
+    "grupo_pob": "Infancia y adolescencia",
+    "_custom": false
   },
   {
     "id": "USMIA-SVICENTE",
@@ -1365,7 +1436,8 @@
     "lat": 38.39204,
     "lon": -0.51696,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "USM-CAMPOAMOR",
@@ -1384,7 +1456,8 @@
     "lat": 38.35919,
     "lon": -0.48502,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "USM-CIUDAD-JARDIN",
@@ -1403,7 +1476,8 @@
     "lat": 38.3751608,
     "lon": -0.4960014,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "USM-FLORIDA-BABEL",
@@ -1422,7 +1496,8 @@
     "lat": 38.34102,
     "lon": -0.50917,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "USM-LOS-ANGELES",
@@ -1441,7 +1516,8 @@
     "lat": 38.36262,
     "lon": -0.49679,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "USM-SAN-BLAS",
@@ -1460,7 +1536,8 @@
     "lat": 38.3494565,
     "lon": -0.5003065,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "TS-HBALMIS",
@@ -1479,7 +1556,8 @@
     "lat": 38.36254,
     "lon": -0.48753,
     "estado": "Activo",
-    "grupo_pob": "Familias y cuidadores"
+    "grupo_pob": "Familias y cuidadores",
+    "_custom": false
   },
   {
     "id": "TS-HSJUAN",
@@ -1498,7 +1576,8 @@
     "lat": 38.38923,
     "lon": -0.43526,
     "estado": "Activo",
-    "grupo_pob": "Familias y cuidadores"
+    "grupo_pob": "Familias y cuidadores",
+    "_custom": false
   },
   {
     "id": "HOSP-DIA-INFANTO-JUV",
@@ -1517,7 +1596,8 @@
     "lat": 38.3854314,
     "lon": -0.4527239,
     "estado": "Activo",
-    "grupo_pob": "Infancia y adolescencia"
+    "grupo_pob": "Infancia y adolescencia",
+    "_custom": false
   },
   {
     "id": "HOSP-DIA-SM-LO-MORANT",
@@ -1536,7 +1616,8 @@
     "lat": 38.3681274,
     "lon": -0.4862382,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "UHSMIJ",
@@ -1555,7 +1636,8 @@
     "lat": 38.08832,
     "lon": -0.85376,
     "estado": "Activo",
-    "grupo_pob": "Infancia y adolescencia"
+    "grupo_pob": "Infancia y adolescencia",
+    "_custom": false
   },
   {
     "id": "CSM-DR-ESQUERDO",
@@ -1571,10 +1653,11 @@
     "tel": "965939033",
     "email": "saludmental@diputacionalicante.es",
     "web": "",
-    "lat": 38.3919853,
-    "lon": -0.4386722,
+    "lat": 38.3906479,
+    "lon": -0.4419412,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "CENTRO-ALCOHOLOGIA",
@@ -1593,7 +1676,8 @@
     "lat": 38.34082,
     "lon": -0.50008,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "UCA-PL-AMERICA",
@@ -1612,7 +1696,8 @@
     "lat": 38.35919,
     "lon": -0.48502,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "UCA-SANTA-FAZ",
@@ -1631,7 +1716,8 @@
     "lat": 38.3457073,
     "lon": -0.4812772,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "UCA-LOS-ANGELES",
@@ -1650,7 +1736,8 @@
     "lat": 38.36262,
     "lon": -0.49679,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "UCA-SAN-BLAS",
@@ -1669,7 +1756,8 @@
     "lat": 38.3494565,
     "lon": -0.5003065,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "EVAL-GVA",
@@ -1688,7 +1776,8 @@
     "lat": 38.33974,
     "lon": -0.51579,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "CMUJER-24H",
@@ -1707,7 +1796,8 @@
     "lat": 38.3420957,
     "lon": -0.4967545,
     "estado": "Activo",
-    "grupo_pob": "Mujeres y víctimas de VG"
+    "grupo_pob": "Mujeres y víctimas de VG",
+    "_custom": false
   },
   {
     "id": "OAVD",
@@ -1726,7 +1816,8 @@
     "lat": 38.34248,
     "lon": -0.50177,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "UFAM",
@@ -1745,7 +1836,8 @@
     "lat": 38.63111,
     "lon": -0.86579,
     "estado": "Activo",
-    "grupo_pob": "Mujeres y víctimas de VG"
+    "grupo_pob": "Mujeres y víctimas de VG",
+    "_custom": false
   },
   {
     "id": "EQ-PSICOSOCIAL",
@@ -1764,7 +1856,8 @@
     "lat": 38.34248,
     "lon": -0.50177,
     "estado": "Activo",
-    "grupo_pob": "Familias y cuidadores"
+    "grupo_pob": "Familias y cuidadores",
+    "_custom": false
   },
   {
     "id": "ADIEM",
@@ -1783,7 +1876,8 @@
     "lat": 38.3371125,
     "lon": -0.5145307,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "AIEM",
@@ -1802,7 +1896,8 @@
     "lat": 38.3464328,
     "lon": -0.4882941,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "ANILIA",
@@ -1821,7 +1916,8 @@
     "lat": 38.3406016,
     "lon": -0.4889491,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "APACV",
@@ -1840,7 +1936,8 @@
     "lat": 38.351303,
     "lon": -0.5017044,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "ASETES-TFNO-ESPERANZA",
@@ -1859,7 +1956,8 @@
     "lat": 38.348878,
     "lon": -0.49172,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "AVTB",
@@ -1878,7 +1976,8 @@
     "lat": 38.3437832,
     "lon": -0.4933553,
     "estado": "Activo",
-    "grupo_pob": "Adultos con TMG / enfermedad mental"
+    "grupo_pob": "Adultos con TMG / enfermedad mental",
+    "_custom": false
   },
   {
     "id": "ADIEM-FUND",
@@ -1897,7 +1996,8 @@
     "lat": 38.3371125,
     "lon": -0.5145602,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "AEPA",
@@ -1916,7 +2016,8 @@
     "lat": 38.3580425,
     "lon": -0.4882497,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "APRALAD",
@@ -1935,7 +2036,8 @@
     "lat": 38.3459712,
     "lon": -0.489523,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "FUND-DIAGRAMA",
@@ -1954,7 +2056,8 @@
     "lat": 38.3404336,
     "lon": -0.4966233,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "PROYECTO-HOMBRE",
@@ -1973,7 +2076,8 @@
     "lat": 38.3006,
     "lon": -0.5267,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "VIDA-LIBRE",
@@ -1992,7 +2096,8 @@
     "lat": 38.343121,
     "lon": -0.4917681,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "AADAH-D",
@@ -2011,7 +2116,8 @@
     "lat": 38.3360289,
     "lon": -0.5072751,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "ADACEA",
@@ -2030,7 +2136,8 @@
     "lat": 38.3496425,
     "lon": -0.504133,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "ADEMA",
@@ -2049,7 +2156,8 @@
     "lat": 38.34961,
     "lon": -0.49517,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "ALINUR",
@@ -2068,7 +2176,8 @@
     "lat": 38.3471855,
     "lon": -0.5024638,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "APSA",
@@ -2087,7 +2196,8 @@
     "lat": 38.3441,
     "lon": -0.4968,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "PARKINSON-ALC",
@@ -2106,7 +2216,8 @@
     "lat": 38.3572824,
     "lon": -0.4874437,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "ALZHEIMER-ALC",
@@ -2125,7 +2236,8 @@
     "lat": 38.3675,
     "lon": -0.4228,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "ASPALI",
@@ -2144,7 +2256,8 @@
     "lat": 38.31506,
     "lon": -0.52352,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "FUND-ALINUR",
@@ -2163,7 +2276,8 @@
     "lat": 38.3470768,
     "lon": -0.5026818,
     "estado": "Activo",
-    "grupo_pob": "Diversidad funcional / neuro-cognitiva"
+    "grupo_pob": "Diversidad funcional / neuro-cognitiva",
+    "_custom": false
   },
   {
     "id": "NATURAPIA",
@@ -2182,7 +2296,8 @@
     "lat": 38.32465,
     "lon": -0.54841,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "APAMM",
@@ -2201,7 +2316,8 @@
     "lat": 38.3464182,
     "lon": -0.4825107,
     "estado": "Activo",
-    "grupo_pob": "Familias y cuidadores"
+    "grupo_pob": "Familias y cuidadores",
+    "_custom": false
   },
   {
     "id": "HUMANIZAR",
@@ -2220,7 +2336,8 @@
     "lat": 38.35741,
     "lon": -0.47046,
     "estado": "Activo",
-    "grupo_pob": "Familias y cuidadores"
+    "grupo_pob": "Familias y cuidadores",
+    "_custom": false
   },
   {
     "id": "ASF-DEMOS",
@@ -2239,7 +2356,8 @@
     "lat": 38.351653,
     "lon": -0.485417,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "TEMPO",
@@ -2258,7 +2376,8 @@
     "lat": 38.3697094,
     "lon": -0.499984,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "CRUZ-ROJA",
@@ -2277,7 +2396,8 @@
     "lat": 38.3549942,
     "lon": -0.5071737,
     "estado": "Activo",
-    "grupo_pob": "Población general / prevención"
+    "grupo_pob": "Población general / prevención",
+    "_custom": false
   },
   {
     "id": "GRANDES-AMIGOS",
@@ -2296,7 +2416,8 @@
     "lat": 38.349353,
     "lon": -0.4840602,
     "estado": "Activo",
-    "grupo_pob": "Personas mayores"
+    "grupo_pob": "Personas mayores",
+    "_custom": false
   },
   {
     "id": "FUND-SALUD-COM",
@@ -2315,7 +2436,8 @@
     "lat": 38.34719,
     "lon": -0.501,
     "estado": "Activo",
-    "grupo_pob": "Personas con adicciones"
+    "grupo_pob": "Personas con adicciones",
+    "_custom": false
   },
   {
     "id": "AVALCAE",
@@ -2334,7 +2456,8 @@
     "lat": 38.3594,
     "lon": -0.4931,
     "estado": "Activo",
-    "grupo_pob": "Mujeres y víctimas de VG"
+    "grupo_pob": "Mujeres y víctimas de VG",
+    "_custom": false
   },
   {
     "id": "ALAS-VIVAS",
@@ -2353,7 +2476,8 @@
     "lat": 38.3405428,
     "lon": -0.5730445,
     "estado": "Activo",
-    "grupo_pob": "Mujeres y víctimas de VG"
+    "grupo_pob": "Mujeres y víctimas de VG",
+    "_custom": false
   },
   {
     "id": "ADDA",
@@ -2372,7 +2496,8 @@
     "lat": 38.3438364,
     "lon": -0.4855557,
     "estado": "Activo",
-    "grupo_pob": "Mujeres y víctimas de VG"
+    "grupo_pob": "Mujeres y víctimas de VG",
+    "_custom": false
   },
   {
     "id": "DIVERSITAT",
@@ -2391,7 +2516,8 @@
     "lat": 38.3517448,
     "lon": -0.481017,
     "estado": "Activo",
-    "grupo_pob": "Mujeres y víctimas de VG"
+    "grupo_pob": "Mujeres y víctimas de VG",
+    "_custom": false
   },
   {
     "id": "NAZARET",
@@ -2410,7 +2536,8 @@
     "lat": 38.36073,
     "lon": -0.49917,
     "estado": "Activo",
-    "grupo_pob": "Infancia y adolescencia"
+    "grupo_pob": "Infancia y adolescencia",
+    "_custom": false
   },
   {
     "id": "ACOMAR",
@@ -2429,7 +2556,8 @@
     "lat": 38.3593946,
     "lon": -0.4757128,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "CAI",
@@ -2448,7 +2576,8 @@
     "lat": 38.3587103,
     "lon": -0.4992244,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "CEAR",
@@ -2467,7 +2596,8 @@
     "lat": 38.3476,
     "lon": -0.5005,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "CARITAS",
@@ -2486,7 +2616,8 @@
     "lat": 38.3646,
     "lon": -0.4742,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "CEPAIM",
@@ -2505,7 +2636,8 @@
     "lat": 38.3455895,
     "lon": -0.5168378,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   },
   {
     "id": "HIJAS-CARIDAD",
@@ -2524,6 +2656,7 @@
     "lat": 38.3659,
     "lon": -0.4993,
     "estado": "Activo",
-    "grupo_pob": "Personas en exclusión social"
+    "grupo_pob": "Personas en exclusión social",
+    "_custom": false
   }
 ]

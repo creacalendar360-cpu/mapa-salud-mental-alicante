@@ -1710,10 +1710,6 @@ function drawBoundaries(gj) {
   if (others.length) {
     L.geoJSON({type:'FeatureCollection', features: others}, {
       style: { color:'#90A4AE', weight:1, opacity:0.5, fillOpacity:0, dashArray:'5,6' },
-      onEachFeature: (f,layer) => {
-        const name = f.properties?.name || f.properties?.['name:es'] || '';
-        if (name) layer.bindTooltip(name, {sticky:true, className:'muni-tooltip'});
-      },
     }).addTo(map);
   }
 
@@ -1722,9 +1718,6 @@ function drawBoundaries(gj) {
   if (src.length) {
     L.geoJSON({type:'FeatureCollection', features: src}, {
       style: { color:'#1565C0', weight:2, opacity:0.75, fillOpacity:0 },
-      onEachFeature: (_,layer) => {
-        layer.bindTooltip('Alicante / Alacant', {sticky:true, className:'muni-tooltip'});
-      },
     }).addTo(map);
   }
 }

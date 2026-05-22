@@ -1632,53 +1632,40 @@ const ALICANTE_NAMES = new Set([
   'Alicante/Alacant','Alacant/Alicante','Alicante','Alacant'
 ]);
 
-// === MUNICIPAL BOUNDARIES — Overpass (city + province) ===
+// === MUNICIPAL BOUNDARIES — Alicante + vecinos ===
 function loadMunicipalBoundaries() {
   const ENDPOINTS = [
     'https://overpass-api.de/api/interpreter',
     'https://overpass.kumi.systems/api/interpreter',
     'https://overpass.openstreetmap.ru/api/interpreter',
   ];
+  // Small bbox: Alicante city + immediate neighbours only (~10-15 municipalities)
   const query = `[out:json][timeout:30];
-    (
-      relation["admin_level"="8"]["name"~"Alicante|Alacant"](38.15,-0.65,38.55,-0.25);
-      relation["admin_level"="6"]["name"~"Alicante|Alacant"](37.5,-1.3,39.1,0.3);
-    );
+    relation["admin_level"="8"]["boundary"="administrative"]
+    (38.18,-0.72,38.56,-0.22);
     out geom qt;`;
 
-  async function tryFetch(url) {
-    const r = await fetch(url, {
-      method:'POST',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body:'data='+encodeURIComponent(query),
-    });
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    return r.json();
-  }
-
-  (async()=>{
-    for(const ep of ENDPOINTS){
-      try{
-        console.log('Boundary endpoint:', ep);
-        const osm = await tryFetch(ep);
-        if(typeof osmtogeojson==='undefined') return;
+  (async () => {
+    for (const ep of ENDPOINTS) {
+      try {
+        const r = await fetch(ep, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: 'data=' + encodeURIComponent(query),
+        });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const osm = await r.json();
+        if (typeof osmtogeojson === 'undefined') throw new Error('osmtogeojson not loaded');
         const gj = osmtogeojson(osm);
-        console.log('Features:', gj.features.length, gj.features.map(f=>f.properties?.name));
-        drawBoundaries(gj); return;
-      }catch(e){ console.warn(ep,'failed:',e.message); }
+        console.log('Boundaries loaded:', gj.features.length, 'features from', ep);
+        if (gj.features.length > 0) { drawBoundaries(gj); return; }
+        throw new Error('empty');
+      } catch(e) { console.warn(ep, e.message); }
     }
     console.warn('All boundary endpoints failed');
   })();
 }
 
-
-// === LEGEND ===
-let legOpen = true;
-function toggleLegend(){
-  legOpen=!legOpen;
-  document.getElementById('leg-body').style.display=legOpen?'block':'none';
-  document.getElementById('leg-chev').textContent=legOpen?'▲':'▼';
-}
 function renderLegend(){
   const fill=(id,map,field)=>{
     const el=document.getElementById(id);

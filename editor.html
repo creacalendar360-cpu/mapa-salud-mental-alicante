@@ -835,7 +835,7 @@ function initFilters() {
         <div class="fdot" style="background:${color}"></div>
         <label class="flabel" for="cb-${key}-${v}">${v}</label>
         <span class="fbadge">${count}</span>`;
-      el.appendChild(div);
+      if (el) el.appendChild(div);
     });
   }
   buildGroup('filter-bloque', bloques, 'bloque', v => BLOQUE_COLOR[v]||'#888');
@@ -844,12 +844,6 @@ function initFilters() {
   const grupos = [...new Set(DATA.filter(r=>r.lat).map(r=>r.grupo_pob))].sort();
   buildGroup('filter-grupo_pob', grupos, 'grupo_pob', v => POB_COLOR[v]||'#888');
 
-  // Legend
-  const leg = document.getElementById('legend-items');
-  Object.entries(BLOQUE_COLOR).forEach(([k,c]) => {
-    if (!DATA.some(r=>r.bloque===k && r.lat)) return;
-    leg.innerHTML += `<div class="li"><div class="ld" style="background:${c}"></div><div class="ll">${k}</div></div>`;
-  });
 }
 
 function onFilter(key, val, checked) {

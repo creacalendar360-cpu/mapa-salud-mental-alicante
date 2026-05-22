@@ -881,6 +881,7 @@ function applyFilters() {
   });
   document.getElementById('vis-n').textContent = visible;
   document.getElementById('stat-visible').textContent = visible;
+  renderLegend();
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -1660,19 +1661,28 @@ function loadMunicipalBoundaries() {
   })();
 }
 
-function renderLegend(){
-  const fill=(id,map,field)=>{
-    const el=document.getElementById(id);
-    if(!el)return;
-    el.innerHTML=Object.entries(map)
-      .filter(([k])=>DATA.some(r=>r[field]===k&&r.lat))
-      .map(([k,c])=>'<div class="li"><div class="ld" style="background:'+c+'"></div><div class="ll">'+k.replace(/^[A-Z]\. /,'')+'</div></div>')
-      .join('');
+function renderLegend() {
+  const fill = (id, colorMap, field) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const active = Object.entries(colorMap).filter(([k]) =>
+      DATA.some(r => r[field]===k && r.lat &&
+        markerMap[r.id] && layerGroup.hasLayer(markerMap[r.id]))
+    );
+    if (active.length === 0) {
+      el.innerHTML = '<div style="font-size:9px;color:#aaa;padding:2px 0">Ninguno activo</div>';
+      return;
+    }
+    el.innerHTML = active.map(([k,c]) =>
+      '<div class="li"><div class="ld" style="background:'+c+'"></div>' +
+      '<div class="ll">'+k.replace(/^[A-Z]\. /,'')+'</div></div>'
+    ).join('');
   };
-  fill('leg-bloque',BLOQUE_COLOR,'bloque');
-  fill('leg-tipo',TIPO_COLOR,'tipo');
-  fill('leg-pob',POB_COLOR,'grupo_pob');
+  fill('leg-bloque', BLOQUE_COLOR, 'bloque');
+  fill('leg-tipo',   TIPO_COLOR,   'tipo');
+  fill('leg-pob',    POB_COLOR,    'grupo_pob');
 }
+
 function switchLegMode(mode){
   DATA.forEach(r=>{
     const m=markerMap[r.id];if(!m)return;
@@ -1730,13 +1740,40 @@ async function loadAndInit() {
 
 
 function drawBoundaries(gj) {
-  const isCity=f=>{const n=f.properties?.name||f.properties?.['name:es']||'';return f.properties?.admin_level==='8'&&/Alicante|Alacant/i.test(n);};
-  const isProv=f=>f.properties?.admin_level==='6';
-  const prov=gj.features.filter(isProv), city=gj.features.filter(isCity);
-  if(prov.length) L.geoJSON({type:'FeatureCollection',features:prov},{style:{color:'#1E88E5',weight:2,opacity:0.7,fillOpacity:0,dashArray:'8,6'}}).addTo(map);
-  if(city.length) L.geoJSON({type:'FeatureCollection',features:city},{style:{color:'#0D47A1',weight:3,opacity:0.85,fillColor:'#1E88E5',fillOpacity:0.06}}).addTo(map);
-  if(!prov.length&&!city.length&&gj.features.length) L.geoJSON(gj,{style:{color:'#1E88E5',weight:2,opacity:0.7,fillOpacity:0.04}}).addTo(map);
+  const EXCLUDE = /sant joan|san juan de alicant/i;
+  const isAlicante = f => {
+    const n = (f.properties?.name || f.properties?.['name:es'] || '').toLowerCase();
+    return n === 'alicante/alacant' || n === 'alacant/alicante'
+        || n === 'alicante' || n === 'alacant';
+  };
+  const isExcl = f => EXCLUDE.test(f.properties?.name || f.properties?.['name:es'] || '');
+
+  const ali    = gj.features.filter(f => isAlicante(f));
+  const others = gj.features.filter(f => !isAlicante(f) && !isExcl(f));
+
+  // Neighbouring municipalities — very subtle thin dashed
+  if (others.length) {
+    L.geoJSON({type:'FeatureCollection', features: others}, {
+      style: { color:'#90A4AE', weight:1, opacity:0.5, fillOpacity:0, dashArray:'5,6' },
+      onEachFeature: (f,layer) => {
+        const name = f.properties?.name || f.properties?.['name:es'] || '';
+        if (name) layer.bindTooltip(name, {sticky:true, className:'muni-tooltip'});
+      },
+    }).addTo(map);
+  }
+
+  // Alicante city — thin solid border, no fill
+  const src = ali.length ? ali : (gj.features.length ? [gj.features[0]] : []);
+  if (src.length) {
+    L.geoJSON({type:'FeatureCollection', features: src}, {
+      style: { color:'#1565C0', weight:2, opacity:0.75, fillOpacity:0 },
+      onEachFeature: (_,layer) => {
+        layer.bindTooltip('Alicante / Alacant', {sticky:true, className:'muni-tooltip'});
+      },
+    }).addTo(map);
+  }
 }
+
 
 </script>
 
